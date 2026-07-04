@@ -2,7 +2,7 @@
 
 <div align="center">
 
-## Real-Time Energy Monitoring Dashboard + Discord Chatbot  
+## Real-Time Smart Office Energy Monitoring Dashboard + Discord Chatbot  
 ### Built for Techathon Nationals — Preliminary Round
 
 ![Node.js](https://img.shields.io/badge/Backend-Node.js-3C873A?style=for-the-badge&logo=node.js&logoColor=white)
@@ -13,7 +13,15 @@
 
 <br />
 
-**A smart office system that monitors lights, fans, live power usage, room-wise energy consumption, and alerts through a web dashboard and Discord bot.**
+**A complete smart office monitoring system that tracks lights, fans, live power usage, room-wise consumption, active alerts, and Discord bot responses using one shared backend.**
+
+<br />
+
+🌐 **GitHub Repository:**  
+`https://github.com/143Habib/Smart_Office`
+
+💬 **Discord Demo Channel:**  
+[Join Discord Channel](https://discord.gg/6vxSywBD4)
 
 </div>
 
@@ -21,14 +29,18 @@
 
 ## ✨ Project Overview
 
-**Smart Office Energy Monitor** is a real-time monitoring solution for a small office where people often forget to turn off lights and fans after work.
+**Smart Office Energy Monitor** is a real-time energy monitoring system designed for a small office where lights and fans are often left running after people leave.
 
-This project allows users to monitor the whole office from two interfaces:
+The system gives the boss and employees a clear live view of the office through:
 
-- A live web dashboard
-- A Discord chatbot
+- A beautiful real-time web dashboard
+- A Discord chatbot for quick status checking
+- A shared backend that keeps all device data consistent
+- Simulated dynamic device data
+- Live power usage calculation
+- Smart alert detection
 
-Both interfaces are connected to the same backend, so the dashboard and bot always show the same live simulated data.
+The main goal is to make office electricity usage visible, understandable, and actionable.
 
 ---
 
@@ -46,7 +58,7 @@ The office contains three rooms:
 
 ---
 
-## 🌟 Key Features
+## 🌟 Main Features
 
 ### 🖥️ Real-Time Web Dashboard
 
@@ -58,8 +70,8 @@ The office contains three rooms:
 - Room-wise power breakdown
 - Device status cards
 - Active alerts panel
-- Video background
-- Glassmorphism dashboard UI
+- Premium glassmorphism UI
+- Background video support
 - Updates without manual page refresh
 
 ---
@@ -81,20 +93,68 @@ Supported commands:
 !save
 ```
 
-The bot does not return hardcoded random text. It reads from the same backend used by the dashboard.
+The bot does not return hardcoded random text. It reads the current office state from the same backend used by the web dashboard.
 
 ---
 
-### 🚨 Smart Alerts
+### 🚨 Smart Alert System
 
-The system can detect:
+The system detects abnormal situations such as:
 
 - Devices left ON after office hours
 - High power usage
 - Room-level abnormal usage
 - Devices running for too long
 
-Alerts are shown on the dashboard and can also be sent to a Discord channel.
+Alerts are shown on the web dashboard and can also be sent to the configured Discord channel.
+
+---
+
+## 🖼️ High-Level System Diagram
+
+![High-Level System Architecture](./High-Level%20System%20Diagram.jpeg)
+
+This diagram shows the complete system flow:
+
+```txt
+Office Devices
+      ↓
+Device Simulator
+      ↓
+Backend Server
+      ↓
+Single Source of Truth
+      ↓
+API Layer
+      ↓
+Web Dashboard + Discord Bot
+      ↓
+User
+```
+
+---
+
+## 🔌 Hardware / Electrical Schematic
+
+The repository also includes the hardware/electrical schematic file.
+
+```txt
+Hardware / Electrical Schematic
+```
+
+The schematic represents how one room can be wired using:
+
+- ESP32 / Arduino
+- Light switches
+- Fan switches
+- Relay modules
+- LED indicators
+- DC motor / fan simulation
+- Optional current sensor
+- Backend communication through Wi-Fi
+
+If the schematic is stored as an image, it can be viewed from the repository files.  
+If the schematic is stored as a ZIP file, download and open it to view the circuit design.
 
 ---
 
@@ -182,6 +242,7 @@ Discord bot answers from same backend data
 | Socket.IO Client | Real-time updates |
 | CSS Animation | Fan rotation and light glow |
 | Glassmorphism UI | Premium visual design |
+| Video Background | Modern dashboard look |
 
 ### Backend
 
@@ -230,7 +291,6 @@ smart-office-energy-monitor/
 │   └── start-windows.ps1
 │
 ├── High-Level System Diagram.jpeg
-├── Circuit Schematic.jpeg
 ├── README.md
 ├── START_HERE_WINDOWS.md
 ├── package.json
@@ -447,6 +507,16 @@ Then test:
 
 ---
 
+## 💬 Discord Demo Channel
+
+Join the Discord demo channel here:
+
+[https://discord.gg/6vxSywBD4](https://discord.gg/6vxSywBD4)
+
+Use the bot commands inside the configured server/channel after the backend is running.
+
+---
+
 ## 🌐 API Endpoints
 
 ### Health Check
@@ -557,9 +627,7 @@ If current power usage is unusually high, create alert.
 
 ---
 
-## 🔌 Hardware / Electrical Schematic
-
-This project includes a representative hardware concept for one room.
+## 🔌 Hardware Concept
 
 The real-world version can use:
 
@@ -568,9 +636,9 @@ The real-world version can use:
 - Fan switches
 - Relay modules
 - LED indicators
-- DC motor/fan simulation
+- DC motor / fan simulation
 - Optional ACS712 current sensor
-- Backend communication through Wi-Fi
+- Wi-Fi communication with backend
 
 ---
 
@@ -608,27 +676,6 @@ This keeps the hardware concept physically sensible while making the demo safe a
 
 ---
 
-## 🖼️ Diagrams
-
-The repository includes:
-
-```txt
-High-Level System Diagram.jpeg
-Circuit Schematic.jpeg
-```
-
-### High-Level System Diagram
-
-```txt
-Devices → Simulated Data → Backend → Dashboard + Discord Bot → User
-```
-
-### Circuit Schematic
-
-Shows a representative room circuit using a microcontroller, switches, fans, lights, relay concept, and optional current sensing.
-
----
-
 ## 🎬 Demo Video Plan
 
 Recommended length: under 3 minutes.
@@ -658,7 +705,8 @@ Recommended length: under 3 minutes.
 - [ ] Discord bot replies to commands
 - [ ] Bot reads from backend data
 - [ ] System diagram is included
-- [ ] Circuit schematic is included
+- [ ] Hardware / electrical schematic is included
+- [ ] Discord channel link is included
 - [ ] README explains setup clearly
 - [ ] `.env` is not uploaded to GitHub
 - [ ] Demo video is clear and under 3 minutes
@@ -734,6 +782,12 @@ GitHub Repository:
 
 ```txt
 https://github.com/143Habib/Smart_Office
+```
+
+Discord Demo Channel:
+
+```txt
+https://discord.gg/6vxSywBD4
 ```
 
 ---
