@@ -1,13 +1,9 @@
-
-
 # ⚡ Smart Office Energy Monitor
 
 <div align="center">
 
-### A Real-Time Energy Monitoring Dashboard + Discord Chatbot  
-#### Built for **Techathon Nationals — Preliminary Round**
-
-<br />
+## Real-Time Energy Monitoring Dashboard + Discord Chatbot  
+### Built for Techathon Nationals — Preliminary Round
 
 ![Node.js](https://img.shields.io/badge/Backend-Node.js-3C873A?style=for-the-badge&logo=node.js&logoColor=white)
 ![React](https://img.shields.io/badge/Frontend-React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
@@ -17,7 +13,7 @@
 
 <br />
 
-**Monitor lights, fans, power usage, and energy alerts from a live web dashboard and Discord bot.**
+**A smart office system that monitors lights, fans, live power usage, room-wise energy consumption, and alerts through a web dashboard and Discord bot.**
 
 </div>
 
@@ -25,23 +21,20 @@
 
 ## ✨ Project Overview
 
-**Smart Office Energy Monitor** is a real-time monitoring system for an office where people often forget to turn off lights and fans after work.
+**Smart Office Energy Monitor** is a real-time monitoring solution for a small office where people often forget to turn off lights and fans after work.
 
-The system gives the office boss a live view of:
+This project allows users to monitor the whole office from two interfaces:
 
-- Which lights and fans are currently ON or OFF
-- How much power the office is consuming right now
-- Which room is using the most electricity
-- Whether any device is left ON after office hours
-- A Discord bot for quick status checking without opening the dashboard
+- A live web dashboard
+- A Discord chatbot
 
-The dashboard and Discord bot both read from the **same shared backend**, so they always show the same live simulated office state.
+Both interfaces are connected to the same backend, so the dashboard and bot always show the same live simulated data.
 
 ---
 
-## 🏢 Office Scenario
+## 🏢 Office Setup
 
-The office has three rooms:
+The office contains three rooms:
 
 | Room | Purpose | Devices |
 |---|---|---|
@@ -49,29 +42,31 @@ The office has three rooms:
 | Work Room 1 | Employee workspace | 2 Fans + 3 Lights |
 | Work Room 2 | Employee workspace | 2 Fans + 3 Lights |
 
-> Note: The problem statement contains a small device-count mismatch. The visible office layout defines **3 rooms × 5 devices = 15 devices**. This project follows the visible office layout and keeps the system modular so more devices can be added easily.
+> Note: The visible office layout contains 3 rooms with 2 fans and 3 lights per room, so this implementation follows **15 total devices**. The system is modular, so more devices can be added easily.
 
 ---
 
-## 🌟 Key Highlights
+## 🌟 Key Features
 
-### ✅ Real-Time Dashboard
+### 🖥️ Real-Time Web Dashboard
 
 - Live office monitoring dashboard
 - Realistic top-view office floor plan
 - Lights glow when ON
 - Fans animate when running
-- Total power usage in Watts
+- Total live power usage in Watts
 - Room-wise power breakdown
-- Live device status cards
+- Device status cards
 - Active alerts panel
 - Video background
-- Glassmorphism UI panels
-- Updates without manual refresh
+- Glassmorphism dashboard UI
+- Updates without manual page refresh
 
-### ✅ Discord Chatbot
+---
 
-The Discord bot acts as the boss’s quick-access assistant.
+### 🤖 Discord Chatbot
+
+The Discord bot works as a quick-access assistant for the office.
 
 Supported commands:
 
@@ -84,32 +79,22 @@ Supported commands:
 !room work2
 !alerts
 !save
-````
+```
 
-The bot does **not** return hardcoded answers. It reads from the same backend data used by the dashboard.
-
-### ✅ Smart Alerts
-
-The system detects:
-
-* Devices left ON after office hours
-* High power usage
-* Room-level abnormal usage
-* Devices running for too long
-
-Alerts are displayed on the dashboard and can also be posted to a Discord channel.
+The bot does not return hardcoded random text. It reads from the same backend used by the dashboard.
 
 ---
 
-## 🖼️ Dashboard Preview
+### 🚨 Smart Alerts
 
-> Add your final dashboard screenshot here.
+The system can detect:
 
-```md
-![Dashboard Preview](./docs/dashboard-preview.png)
-```
+- Devices left ON after office hours
+- High power usage
+- Room-level abnormal usage
+- Devices running for too long
 
-Current floor plan and live overlay are included inside the frontend assets.
+Alerts are shown on the dashboard and can also be sent to a Discord channel.
 
 ---
 
@@ -150,38 +135,38 @@ Current floor plan and live overlay are included inside the frontend assets.
 ```txt
 Device simulator changes ON/OFF state
         ↓
-Backend updates the device store
+Backend updates device store
         ↓
 Power usage is recalculated
         ↓
 Alert engine checks abnormal conditions
         ↓
-Socket.IO emits the new live state
+Socket.IO emits latest state
         ↓
 Dashboard updates instantly
         ↓
-Discord bot answers from the same backend
+Discord bot answers from same backend data
 ```
 
 ---
 
-## 📌 Competition Requirement Coverage
+## 📌 Requirement Coverage
 
-| Requirement                  | Implementation                   |
-| ---------------------------- | -------------------------------- |
-| Real-time web dashboard      | Completed with React + Socket.IO |
-| Live device status panel     | Completed                        |
-| Live power meter             | Completed                        |
-| Room-wise power breakdown    | Completed                        |
-| Active alerts panel          | Completed                        |
-| Discord bot                  | Completed with Discord.js        |
-| Bot uses real simulated data | Completed                        |
-| Shared backend               | Completed                        |
-| System diagram               | Included                         |
-| Hardware schematic concept   | Included                         |
-| Dynamic dummy data           | Completed                        |
-| Public GitHub-ready codebase | Completed                        |
-| Clear README                 | Completed                        |
+| Requirement | Status |
+|---|---|
+| Real-time web dashboard | ✅ Completed |
+| Live device status panel | ✅ Completed |
+| Live power consumption meter | ✅ Completed |
+| Room-wise power breakdown | ✅ Completed |
+| Active alerts panel | ✅ Completed |
+| Discord bot | ✅ Completed |
+| Bot uses real simulated data | ✅ Completed |
+| Shared backend | ✅ Completed |
+| High-level system diagram | ✅ Included |
+| Hardware / electrical schematic | ✅ Included |
+| Dynamic dummy data | ✅ Completed |
+| Public GitHub-ready codebase | ✅ Completed |
+| Clear setup documentation | ✅ Completed |
 
 ---
 
@@ -189,25 +174,25 @@ Discord bot answers from the same backend
 
 ### Frontend
 
-| Technology       | Purpose                     |
-| ---------------- | --------------------------- |
-| React            | Web dashboard UI            |
-| Vite             | Frontend development server |
-| Tailwind CSS     | Styling                     |
-| Socket.IO Client | Real-time dashboard updates |
-| CSS Animations   | Fan rotation and light glow |
-| Glassmorphism UI | Premium visual design       |
+| Technology | Purpose |
+|---|---|
+| React | Web dashboard UI |
+| Vite | Frontend development server |
+| Tailwind CSS | Styling |
+| Socket.IO Client | Real-time updates |
+| CSS Animation | Fan rotation and light glow |
+| Glassmorphism UI | Premium visual design |
 
 ### Backend
 
-| Technology           | Purpose                 |
-| -------------------- | ----------------------- |
-| Node.js              | Backend runtime         |
-| Express.js           | REST API                |
-| Socket.IO            | Real-time events        |
-| Discord.js           | Discord bot integration |
-| JavaScript Simulator | Dynamic device data     |
-| In-memory Store      | Single source of truth  |
+| Technology | Purpose |
+|---|---|
+| Node.js | Backend runtime |
+| Express.js | REST API |
+| Socket.IO | Real-time communication |
+| Discord.js | Discord bot integration |
+| JavaScript Simulator | Dynamic device data |
+| In-memory Store | Single source of truth |
 
 ---
 
@@ -260,11 +245,11 @@ smart-office-energy-monitor/
 
 Install these first:
 
-* Node.js 18 or newer
-* npm
-* Git
-* VS Code
-* Discord account
+- Node.js 18 or newer
+- npm
+- Git
+- VS Code
+- Discord account
 
 Check installation:
 
@@ -287,15 +272,7 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 .\scripts\start-windows.ps1
 ```
 
-The script will:
-
-* Install root dependencies
-* Install backend dependencies
-* Install frontend dependencies
-* Create environment files if needed
-* Start backend and frontend together
-
-Open dashboard:
+Open the dashboard:
 
 ```txt
 http://localhost:5173
@@ -367,12 +344,7 @@ Never expose your Discord bot token.
 
 1. Open Discord Developer Portal
 2. Click **New Application**
-3. Name it:
-
-```txt
-Smart Office
-```
-
+3. Name it **Smart Office**
 4. Go to **Bot**
 5. Click **Reset Token**
 6. Copy the token
@@ -387,13 +359,13 @@ DISCORD_BOT_TOKEN=your_token_here
 
 ### Step 2: Enable Message Content Intent
 
-In the Discord Developer Portal:
+In Discord Developer Portal:
 
 ```txt
 Bot → Privileged Gateway Intents → Message Content Intent → ON
 ```
 
-This allows the bot to read text commands such as:
+This is required because the bot reads text commands such as:
 
 ```txt
 !status
@@ -473,14 +445,6 @@ Then test:
 !save
 ```
 
-Expected behavior:
-
-* Bot replies with live office status
-* Bot shows current power usage
-* Bot shows room-specific device states
-* Bot displays active alerts
-* Bot uses backend data, not hardcoded text
-
 ---
 
 ## 🌐 API Endpoints
@@ -503,12 +467,12 @@ GET /api/state
 
 Returns:
 
-* Devices
-* Rooms
-* Alerts
-* Total power
-* Room-wise power
-* Runtime data
+- Devices
+- Rooms
+- Alerts
+- Total power
+- Room-wise power
+- Runtime data
 
 ---
 
@@ -532,11 +496,9 @@ Returns all active alert messages.
 
 ---
 
-## 📡 Real-Time Socket Events
+## 📡 Real-Time Socket Event
 
-The frontend listens to live backend updates using Socket.IO.
-
-### Main Event
+The frontend listens to backend updates using Socket.IO.
 
 ```txt
 state:update
@@ -551,9 +513,9 @@ Whenever device data changes, the backend emits the latest state and the dashboa
 Each device has a fixed wattage when ON.
 
 | Device | Wattage |
-| ------ | ------- |
-| Fan    | 60W     |
-| Light  | 15W     |
+|---|---|
+| Fan | 60W |
+| Light | 15W |
 
 Formula:
 
@@ -573,8 +535,6 @@ Room Total = 165W
 ---
 
 ## 🚨 Alert Logic
-
-The alert engine checks:
 
 ### After-Hours Alert
 
@@ -603,32 +563,32 @@ This project includes a representative hardware concept for one room.
 
 The real-world version can use:
 
-* ESP32 or Arduino
-* Light switches
-* Fan switches
-* Relay modules
-* LED indicators
-* DC motor/fan simulation
-* Optional ACS712 current sensor
-* Backend communication through Wi-Fi
+- ESP32 or Arduino
+- Light switches
+- Fan switches
+- Relay modules
+- LED indicators
+- DC motor/fan simulation
+- Optional ACS712 current sensor
+- Backend communication through Wi-Fi
 
 ---
 
 ## 📍 Example Pin Mapping
 
-| Component      | ESP32 Pin | Purpose                         |
-| -------------- | --------: | ------------------------------- |
-| Light 1 Switch |   GPIO 13 | Read Light 1 state              |
-| Light 2 Switch |   GPIO 14 | Read Light 2 state              |
-| Light 3 Switch |   GPIO 27 | Read Light 3 state              |
-| Fan 1 Switch   |   GPIO 26 | Read Fan 1 state                |
-| Fan 2 Switch   |   GPIO 25 | Read Fan 2 state                |
-| Current Sensor |   GPIO 34 | Optional analog current reading |
-| Light 1 Relay  |   GPIO 18 | Control Light 1                 |
-| Light 2 Relay  |   GPIO 19 | Control Light 2                 |
-| Light 3 Relay  |   GPIO 21 | Control Light 3                 |
-| Fan 1 Relay    |   GPIO 22 | Control Fan 1                   |
-| Fan 2 Relay    |   GPIO 23 | Control Fan 2                   |
+| Component | ESP32 Pin | Purpose |
+|---|---:|---|
+| Light 1 Switch | GPIO 13 | Read Light 1 state |
+| Light 2 Switch | GPIO 14 | Read Light 2 state |
+| Light 3 Switch | GPIO 27 | Read Light 3 state |
+| Fan 1 Switch | GPIO 26 | Read Fan 1 state |
+| Fan 2 Switch | GPIO 25 | Read Fan 2 state |
+| Current Sensor | GPIO 34 | Optional analog current reading |
+| Light 1 Relay | GPIO 18 | Control Light 1 |
+| Light 2 Relay | GPIO 19 | Control Light 2 |
+| Light 3 Relay | GPIO 21 | Control Light 3 |
+| Fan 1 Relay | GPIO 22 | Control Fan 1 |
+| Fan 2 Relay | GPIO 23 | Control Fan 2 |
 
 ---
 
@@ -638,13 +598,13 @@ GPIO pins cannot directly power real lights or fans.
 
 A practical design should use:
 
-* Switch inputs for reading ON/OFF state
-* Relay modules or transistor drivers for controlling loads
-* Separate power supply for motors or real electrical loads
-* Current sensor for measuring actual consumption
-* Common ground between low-voltage control modules where required
+- Switch inputs for reading ON/OFF state
+- Relay modules or transistor drivers for controlling loads
+- Separate power supply for motors or real electrical loads
+- Current sensor for measuring actual consumption
+- Common ground between low-voltage control modules where required
 
-This makes the schematic physically sensible while keeping the demo safe and simulation-based.
+This keeps the hardware concept physically sensible while making the demo safe and simulation-based.
 
 ---
 
@@ -665,59 +625,43 @@ Devices → Simulated Data → Backend → Dashboard + Discord Bot → User
 
 ### Circuit Schematic
 
-Shows a representative room circuit using a microcontroller, switches, fans, lights, and optional current sensing.
-
-To display the diagram inside GitHub README, use:
-
-```md
-![High-Level System Diagram](./High-Level%20System%20Diagram.jpeg)
-```
-
-If you move diagrams into a `docs` folder, use:
-
-```md
-![High-Level System Diagram](./docs/high-level-system-diagram.jpeg)
-```
+Shows a representative room circuit using a microcontroller, switches, fans, lights, relay concept, and optional current sensing.
 
 ---
 
 ## 🎬 Demo Video Plan
 
-Recommended length: **under 3 minutes**.
+Recommended length: under 3 minutes.
 
-### Demo Script
-
-| Time        | What to Show                                              |
-| ----------- | --------------------------------------------------------- |
-| 0:00 - 0:20 | Introduce the problem: lights and fans are left ON        |
-| 0:20 - 0:55 | Show live dashboard and office floor plan                 |
-| 0:55 - 1:25 | Show lights glowing and fans animating                    |
-| 1:25 - 1:50 | Show live power usage and room-wise breakdown             |
+| Time | What to Show |
+|---|---|
+| 0:00 - 0:20 | Introduce the problem: lights and fans are left ON |
+| 0:20 - 0:55 | Show live dashboard and office floor plan |
+| 0:55 - 1:25 | Show lights glowing and fans animating |
+| 1:25 - 1:50 | Show live power usage and room-wise breakdown |
 | 1:50 - 2:20 | Test Discord commands: `!status`, `!usage`, `!room work1` |
-| 2:20 - 2:45 | Show active alerts                                        |
-| 2:45 - 3:00 | Explain shared backend architecture                       |
+| 2:20 - 2:45 | Show active alerts |
+| 2:45 - 3:00 | Explain shared backend architecture |
 
 ---
 
 ## ✅ Final Submission Checklist
 
-Before submitting, confirm:
-
-* [ ] Dashboard runs at `http://localhost:5173`
-* [ ] Backend runs at `http://localhost:8080`
-* [ ] Devices update live
-* [ ] Lights show ON/OFF state visually
-* [ ] Fans animate when ON
-* [ ] Total power meter updates
-* [ ] Room-wise power breakdown works
-* [ ] Alerts appear on dashboard
-* [ ] Discord bot replies to commands
-* [ ] Bot reads from backend data
-* [ ] System diagram is included
-* [ ] Circuit schematic is included
-* [ ] README explains setup clearly
-* [ ] `.env` is not uploaded to GitHub
-* [ ] Demo video is clear and under 3 minutes
+- [ ] Dashboard runs at `http://localhost:5173`
+- [ ] Backend runs at `http://localhost:8080`
+- [ ] Devices update live
+- [ ] Lights show ON/OFF state visually
+- [ ] Fans animate when ON
+- [ ] Total power meter updates
+- [ ] Room-wise power breakdown works
+- [ ] Alerts appear on dashboard
+- [ ] Discord bot replies to commands
+- [ ] Bot reads from backend data
+- [ ] System diagram is included
+- [ ] Circuit schematic is included
+- [ ] README explains setup clearly
+- [ ] `.env` is not uploaded to GitHub
+- [ ] Demo video is clear and under 3 minutes
 
 ---
 
@@ -768,22 +712,22 @@ If your Discord token is accidentally uploaded:
 
 ## 🚀 Future Improvements
 
-* Add MQTT support for real IoT devices
-* Add ESP32 firmware
-* Add database persistence
-* Add login system
-* Add admin controls
-* Add device scheduling
-* Add historical energy charts
-* Add monthly electricity cost report
-* Add AI-generated energy saving suggestions
-* Add natural language Discord responses with an LLM
+- Add MQTT support for real IoT devices
+- Add ESP32 firmware
+- Add database persistence
+- Add login system
+- Add admin controls
+- Add device scheduling
+- Add historical energy charts
+- Add monthly electricity cost report
+- Add AI-generated energy saving suggestions
+- Add natural language Discord responses with an LLM
 
 ---
 
 ## 👨‍💻 Author
 
-**Smart Office Energy Monitor**
+**Smart Office Energy Monitor**  
 Built for hackathon demonstration and smart energy monitoring.
 
 GitHub Repository:
@@ -794,33 +738,8 @@ https://github.com/143Habib/Smart_Office
 
 ---
 
-## 🏁 Final Note
-
-This project focuses on:
-
-* Real-time monitoring
-* Shared backend design
-* Clean dashboard experience
-* Discord chatbot integration
-* Simulated but realistic energy data
-* Practical hardware reasoning
-* Clear documentation for judges
-
-The goal is not only to show data, but to make the office energy problem visible, understandable, and actionable.
-
----
-
 <div align="center">
 
-### ⚡ Smart Office. Smarter Energy. Better Decisions.
+## ⚡ Smart Office. Smarter Energy. Better Decisions.
 
 </div>
-```
-
-Paste korar por push dao:
-
-```powershell
-git add README.md
-git commit -m "Create premium competition README"
-git push
-```
