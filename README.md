@@ -1,5 +1,5 @@
 
-````md
+
 # ⚡ Smart Office Energy Monitor
 
 <div align="center">
