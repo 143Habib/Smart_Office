@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="620" viewBox="0 0 1400 620">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#22d3ee"/></marker>
+    <style>text{font-family:Inter,Segoe UI,Arial,sans-serif;fill:#e5eefb}.title{font-size:36px;font-weight:800}.node{fill:#0f172a;stroke:#38bdf8;stroke-width:2;rx:24}.small{font-size:16px;fill:#cbd5e1}.head{font-size:21px;font-weight:800}.arrow{stroke:#22d3ee;stroke-width:4;fill:none;marker-end:url(#arrow)}</style>
+  </defs>
+  <rect width="1400" height="620" rx="32" fill="#06101f"/>
+  <text x="70" y="72" class="title">Live Data Flow</text>
+  <text x="70" y="106" class="small">Every interface reads the same computed state; no hardcoded Discord replies.</text>
+  <rect x="70" y="210" width="180" height="118" class="node"/><text x="106" y="255" class="head">Device Tick</text><text x="106" y="286" class="small">status changes</text>
+  <rect x="315" y="210" width="190" height="118" class="node"/><text x="350" y="255" class="head">State Store</text><text x="350" y="286" class="small">one source of truth</text>
+  <rect x="570" y="210" width="190" height="118" class="node"/><text x="608" y="255" class="head">Usage Calc</text><text x="608" y="286" class="small">watts/kWh/cost</text>
+  <rect x="825" y="210" width="190" height="118" class="node"/><text x="860" y="255" class="head">Alert Engine</text><text x="860" y="286" class="small">rules + timestamps</text>
+  <rect x="1080" y="125" width="220" height="118" class="node"/><text x="1120" y="170" class="head">Dashboard</text><text x="1120" y="201" class="small">Socket.IO live UI</text>
+  <rect x="1080" y="360" width="220" height="118" class="node"/><text x="1127" y="405" class="head">Discord Bot</text><text x="1127" y="436" class="small">real API/store data</text>
+  <path class="arrow" d="M250 269H315"/><path class="arrow" d="M505 269H570"/><path class="arrow" d="M760 269H825"/>
+  <path class="arrow" d="M1015 242C1045 210 1055 185 1080 184"/><path class="arrow" d="M1015 305C1045 350 1054 418 1080 419"/>
+  <path class="arrow" d="M415 328C455 415 960 530 1080 438"/>
+</svg>

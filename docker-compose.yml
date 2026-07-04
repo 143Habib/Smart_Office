@@ -1,0 +1,27 @@
+services:
+  backend:
+    image: node:20-alpine
+    working_dir: /app/backend
+    command: sh -c "npm install && npm run dev"
+    volumes:
+      - .:/app
+    ports:
+      - "8080:8080"
+    environment:
+      PORT: 8080
+      FRONTEND_ORIGIN: http://localhost:5173
+      ENABLE_SIMULATOR: "true"
+      DISCORD_BOT_TOKEN: ""
+      DISCORD_ALERT_CHANNEL_ID: ""
+  frontend:
+    image: node:20-alpine
+    working_dir: /app/frontend
+    command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
+    volumes:
+      - .:/app
+    ports:
+      - "5173:5173"
+    environment:
+      VITE_API_URL: http://localhost:8080
+    depends_on:
+      - backend

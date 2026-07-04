@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="820" viewBox="0 0 1400 820">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#08111f"/><stop offset="1" stop-color="#10233d"/></linearGradient>
+    <linearGradient id="box" x1="0" x2="1"><stop stop-color="#0ea5e9" stop-opacity=".22"/><stop offset="1" stop-color="#34d399" stop-opacity=".18"/></linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#93c5fd"/></marker>
+    <style>
+      text{font-family:Inter,Segoe UI,Arial,sans-serif;fill:#e5eefb}.title{font-size:38px;font-weight:800}.small{font-size:18px;fill:#bdd3ea}.box-title{font-size:23px;font-weight:800}.box-small{font-size:16px;fill:#cbd5e1}.box{fill:url(#box);stroke:#60a5fa;stroke-width:2;rx:24}.core{fill:#102a43;stroke:#34d399;stroke-width:3;rx:26}.arrow{stroke:#93c5fd;stroke-width:4;fill:none;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1400" height="820" rx="34" fill="url(#bg)"/>
+  <text x="70" y="70" class="title">Smart Office Energy Monitor — High-Level System Diagram</text>
+  <text x="72" y="105" class="small">Single source of truth: simulated device layer → backend API/WebSocket → web dashboard + Discord bot → user.</text>
+
+  <rect x="70" y="185" width="280" height="135" class="box"/>
+  <text x="105" y="235" class="box-title">Simulated Device Layer</text>
+  <text x="105" y="267" class="box-small">18 live records</text>
+  <text x="105" y="294" class="box-small">status · watts · room · timestamp</text>
+
+  <rect x="435" y="170" width="330" height="170" class="core"/>
+  <text x="475" y="228" class="box-title">Backend API + Store</text>
+  <text x="475" y="263" class="box-small">Express REST endpoints</text>
+  <text x="475" y="290" class="box-small">in-memory state, alert engine</text>
+  <text x="475" y="317" class="box-small">Socket.IO realtime events</text>
+
+  <rect x="850" y="125" width="300" height="150" class="box"/>
+  <text x="895" y="180" class="box-title">Web Dashboard</text>
+  <text x="895" y="215" class="box-small">office map, status panel</text>
+  <text x="895" y="242" class="box-small">live watts + active alerts</text>
+
+  <rect x="850" y="350" width="300" height="150" class="box"/>
+  <text x="902" y="405" class="box-title">Discord Bot</text>
+  <text x="902" y="440" class="box-small">!status · !room · !usage</text>
+  <text x="902" y="467" class="box-small">friendly live responses</text>
+
+  <rect x="1185" y="230" width="150" height="160" class="box"/>
+  <text x="1226" y="293" class="box-title">User</text>
+  <text x="1215" y="328" class="box-small">Boss / team</text>
+  <text x="1210" y="355" class="box-small">Browser + Discord</text>
+
+  <rect x="435" y="515" width="330" height="135" class="box"/>
+  <text x="485" y="565" class="box-title">Alert Engine</text>
+  <text x="485" y="598" class="box-small">after office hours</text>
+  <text x="485" y="625" class="box-small">all devices ON &gt; 2 hours</text>
+
+  <path class="arrow" d="M350 252 C385 252 395 252 435 252"/>
+  <path class="arrow" d="M765 220 C800 205 815 200 850 200"/>
+  <path class="arrow" d="M765 292 C810 345 815 425 850 425"/>
+  <path class="arrow" d="M600 340 L600 515"/>
+  <path class="arrow" d="M765 580 C900 575 1000 535 1000 500"/>
+  <path class="arrow" d="M1150 200 C1180 220 1190 250 1205 285"/>
+  <path class="arrow" d="M1150 425 C1180 405 1192 370 1205 340"/>
+
+  <text x="381" y="235" class="box-small">updates</text>
+  <text x="792" y="188" class="box-small">WebSocket</text>
+  <text x="790" y="402" class="box-small">REST/store</text>
+  <text x="620" y="430" class="box-small">derive alerts</text>
+  <text x="825" y="565" class="box-small">proactive warning</text>
+</svg>
